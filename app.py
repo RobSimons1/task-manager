@@ -9,6 +9,7 @@ app.config["MONGO_URI"] = 'mongodb+srv://RobSimons1:Ripped14@myfirstcluster-yyi3
 
 mongo = PyMongo(app)
 
+
 @app.route('/get_tasks')
 def get_tasks():
     _tasks = mongo.db.tasks.find()
@@ -16,6 +17,7 @@ def get_tasks():
     return render_template("tasks.html", task = task_list)
 
 
+@app.route('/')
 @app.route('/add_task')
 def add_task():
     _categories = mongo.db.categories.find()
